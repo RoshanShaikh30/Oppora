@@ -62,3 +62,19 @@ Potential Cause:
 
 Future Solution:
 - Improve extraction prompt and validate expected record counts.
+
+## 7. MLH Multi-Event Extraction
+
+Two scraper attempts were able to extract event information successfully,
+but only one event record was returned despite multiple events existing on the page.
+
+Status:
+Needs investigation.
+
+Potential causes:
+- Dynamic content loading
+- Nested event structure
+- Scraper selecting featured event instead of event collection
+
+Impact:
+Incomplete source coverage.
