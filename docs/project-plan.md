@@ -19,8 +19,10 @@ Oppora aggregates opportunities from public websites using adaptive self-healing
 ## Target Sources
 
 - Devfolio
+
+## Future Sources:
 - MLH
-- Additional public opportunity source
+- Other public opportunity platforms
 
 ## Hackathon Goal
 
