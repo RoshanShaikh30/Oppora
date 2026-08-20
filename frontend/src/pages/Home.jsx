@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import OpportunityCard from "../components/OpportunityCard";
 import { useEffect, useState } from "react";
+import SelfHealingPanel from "../components/SelfHealingPanel";
 
 function Home() {
   const [opportunities, setOpportunities] = useState([]);
@@ -49,6 +50,8 @@ function Home() {
     </div>
   </div>
 )}
+
+   <SelfHealingPanel />
 
   <input
     type="text"

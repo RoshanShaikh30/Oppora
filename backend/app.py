@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from subprocess import run
 import json
 
 app = FastAPI()
@@ -26,3 +27,20 @@ def get_health():
         data = json.load(file)
 
     return data
+
+@app.post("/api/heal")
+def heal_data():
+
+    run(["python", "heal_data.py"])
+    
+    run(["python", "validate_data.py"])
+
+    run(["python", "export_report.py"])
+
+    with open("../data/health_report.json", "r", encoding="utf-8") as file:
+        report = json.load(file)
+
+    return {
+        "message": "Healing complete",
+        "report": report
+    }
