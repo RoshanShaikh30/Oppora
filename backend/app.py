@@ -14,7 +14,7 @@ app.add_middleware(
 
 @app.get("/api/opportunities")
 def get_opportunities():
-    with open("data/devfolio_processed.json", "r", encoding="utf-8") as file:
+    with open("../data/devfolio_processed.json", "r", encoding="utf-8") as file:
         data = json.load(file)
 
     return data
@@ -22,7 +22,7 @@ def get_opportunities():
 
 @app.get("/api/health")
 def get_health():
-    with open("data/health_report.json", "r", encoding="utf-8") as file:
+    with open("../data/health_report.json", "r", encoding="utf-8") as file:
         data = json.load(file)
 
     return data
