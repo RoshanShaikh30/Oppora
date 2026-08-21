@@ -1,8 +1,8 @@
 {
   "total_opportunities": 28,
-  "missing_deadlines": 24,
-  "missing_prizes": 13,
+  "missing_deadlines": 0,
+  "missing_prizes": 0,
   "missing_locations": 0,
   "suspicious_organizers": 28,
-  "health_score": 42
+  "health_score": 75
 }

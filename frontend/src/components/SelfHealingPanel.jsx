@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SelfHealingPanel() {
   const [healing, setHealing] = useState(false);
   const [result, setResult] = useState(null);
+  const [autoHeal, setAutoHeal] = useState(false);
 
   const runHealing = async () => {
     setHealing(true);
@@ -25,31 +26,81 @@ function SelfHealingPanel() {
     setHealing(false);
   };
 
+  useEffect(() => {
+  if (autoHeal) {
+    runHealing();
+  }
+}, [autoHeal]);
+
   return (
     <div className="health-card">
       <h2>Self-Healing Engine</h2>
 
+      <label
+  style={{
+    display: "block",
+    marginBottom: "1rem",
+    fontSize: "1.1rem",
+  }}
+>
+  <input
+    type="checkbox"
+    checked={autoHeal}
+    onChange={() => setAutoHeal(!autoHeal)}
+  />
+  {" "}Auto-Heal Mode
+</label>
+
+{autoHeal && (
+  <p style={{ color: "#4ade80" }}>
+    Auto-Heal Enabled
+  </p>
+)}
+
       {!healing && (
-        <button onClick={runHealing}>
+        <button className="heal-btn" onClick={runHealing}>
           Run Recovery
         </button>
       )}
 
       {healing && (
-        <p>Recovering missing fields...</p>
+        <p>Analyzing data... 
+          <br /> Repairing missing fields... 
+          <br /> Regenerating health report...
+        </p>
       )}
 
       {result && (
-        <>
-          <p>{result.message}</p>
+  <>
+    <h3>Recovery Complete</h3>
 
-          <p>
-            Health Score:
-            {" "}
-            {result.report.health_score}
-          </p>
-        </>
-      )}
+    <p>
+      <strong>New Health Score:</strong>{" "}
+       
+      {result.report.health_score}/100
+    </p>
+
+    <p>
+      <strong>Total Opportunities:</strong>{" "}
+      {result.report.total_opportunities}
+    </p>
+
+    <p>
+      <strong>Missing Deadlines:</strong>{" "}
+      {result.report.missing_deadlines}
+    </p>
+
+    <p>
+      <strong>Missing Prizes:</strong>{" "}
+      {result.report.missing_prizes}
+    </p>
+
+    <p>
+      <strong>Suspicious Organizers:</strong>{" "}
+      {result.report.suspicious_organizers}
+    </p>
+    </>
+    )}
     </div>
   );
 }

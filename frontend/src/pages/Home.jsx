@@ -7,6 +7,7 @@ function Home() {
   const [opportunities, setOpportunities] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [health, setHealth] = useState(null);
+  // const [autoHeal, setAutoHeal] = useState(false);
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/opportunities")
@@ -31,7 +32,7 @@ function Home() {
     <Navbar />
 
     <div className="container">
-      <h1>Latest Opportunities</h1>
+      <h1 className="hero-title">Latest Opportunities</h1>
 
        <p>
     {filteredOpportunities.length} Opportunities Found

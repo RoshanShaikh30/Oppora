@@ -19,7 +19,10 @@ for item in opportunities:
 with open("../data/devfolio_processed.json", "w", encoding="utf-8") as file:
     json.dump(opportunities, file, indent=2)
 
-print({
+healing_report = {
     "recovered_deadlines": recovered_deadlines,
     "recovered_prizes": recovered_prizes
-})
+}
+
+with open("../data/healing_report.json", "w", encoding="utf-8") as file:
+    json.dump(healing_report, file, indent=2)

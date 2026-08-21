@@ -39,8 +39,29 @@ def heal_data():
 
     with open("../data/health_report.json", "r", encoding="utf-8") as file:
         report = json.load(file)
+        
+    with open("../data/healing_report.json", "r", encoding="utf-8") as file:
+        healing_report = json.load(file)
 
     return {
         "message": "Healing complete",
+        "report": report,
+        "healing_report": healing_report
+    }
+    
+@app.post("/api/auto-heal")
+def auto_heal():
+
+    import subprocess
+
+    subprocess.run(
+        ["python", "recover_data.py"]
+    )
+
+    with open("../data/health_report.json", "r") as file:
+        report = json.load(file)
+
+    return {
+        "message": "Auto-healing completed",
         "report": report
     }
