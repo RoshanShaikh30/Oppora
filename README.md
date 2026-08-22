@@ -1,27 +1,47 @@
 # Oppora
 
-Oppora is a web-data powered opportunity discovery platform built for the Into The Scrape-Verse Hackathon.
+Oppora is an opportunity discovery and data-quality platform built for the Into The Scrape-Verse Hackathon.
+
+The platform collects opportunity data from online sources, evaluates data quality, detects missing or suspicious information, and provides a visual dashboard with a self-healing engine for improving dataset reliability.
 
 ## Features
 
-- Scrapes opportunities using Bright Data Scraper Studio
-- Converts raw web data into a standard format
-- Detects missing and suspicious fields
-- Generates data quality health reports
-- Designed for reliable opportunity tracking
+- Opportunity aggregation from Devfolio
+- Automated web scraping using Bright Data Scraper Studio
+- Data quality analysis
+- Health score generation
+- Missing field detection
+- Suspicious organizer detection
+- Self-Healing Engine for automatic recovery
+- Interactive React dashboard
+- Search and filtering
 
 ## Tech Stack
 
-- Bright Data Scraper Studio
+### Frontend
+- React
+- Vite
+- JavaScript
+- CSS
+
+### Backend
 - Python
+- FastAPI
+
+### Data
 - JSON
-- GitHub
+
+### Scraping
+- Bright Data Scraper Studio
 
 ## Current Data Source
 
 - Devfolio
 
+## Project Workflow
+
+Devfolio → Scraper Studio → Python Processing → Health Analysis → Self-Healing Engine → React Dashboard
+
 ## Status
 
-Backend pipeline completed.
-Frontend dashboard in progress.
+Completed prototype with working frontend, backend, health reporting, and recovery engine.
